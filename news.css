@@ -1,0 +1,97 @@
+/* الأنماط (CSS) لتوسيط العنوان وتحسين مظهره */
+body {
+    background-image: url(media/gg.gif); 
+    background-size: cover;
+    font-family: 'Arial', sans-serif;
+    text-align: right; /* محاذاة النص الافتراضية لليمين (لأن اللغة عربية) */
+    margin: 0;
+    padding: 0;
+}
+
+/* الأنماط المعدلة: جعل المربع أوتوماتيكي (يتكيف مع المحتوى) ولونه أزرق */
+header {
+    background-color: #0b336b; /* اللون الأزرق المطلوب */
+    padding: 10px;
+    border-bottom: 5px solid #fafafa;
+    
+    /* 1. جعل المربع أوتوماتيكي الحجم وعرضه يقتصر على المحتوى */
+   display: flex; 
+    
+    /* 2. إزالة الهوامش التلقائية القديمة وضبط التوسيط */
+    margin: 5px auto; 
+    
+    /* 3. إضافة حواف دائرية لجعله يبدو كبطاقة */
+    border-radius: 50px; 
+}
+
+/* لتوسيط العنصر الذي أصبح inline-block (header) */
+body {
+    /* يجب أن يحتوي body على text-align: center لتوسيط الـ header */
+    text-align: center; 
+    /* ... (احتفظ بالأنماط الأخرى لـ body) ... */
+}
+
+.header-content {
+    /* للحفاظ على توسيط العناصر الداخلية بشكل صحيح (h1 و الوصف) */
+    display: block;
+    justify-content: center; 
+    align-items: center;
+    width: 100%;
+    /* إذا كان لديك وصف، استخدم flex-direction: column لتصفيتهما عمودياً */
+    flex-direction: column; 
+}
+
+/* أنماط العنوان (H1): لجعل لون النص أبيض */
+/* ================================ */
+/* أنماط العنوان (H1) */
+/* ================================ */
+h1 {
+
+    
+    /* ⬅️ التعديل هنا: إضافة ظل متوهج بلون أزرق (#007bff) */
+    text-shadow: 0 0 10px #007bff,  /* ظل أول: إزاحة 0، انتشار 10px، لون أزرق */
+                 0 0 20px #007bff;  /* ظل ثانٍ: إزاحة 0، انتشار 20px، لون أزرق (لزيادة التوهج) */
+    
+    background-color: transparent; 
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    font-size: 2em; /* مثال لحجم الخط */
+}
+
+/* ... (باقي الأنماط الأخرى في ملف styles.css) ... */
+
+
+
+/* ... (الأنماط السابقة لـ body, header, h1, .header-content, .description) ... */
+
+/* ================================ */
+/* أنماط القائمة الجديدة */
+/* ================================ */
+
+.news-list {
+    list-style-type: square; /* استخدام مربع كرمز للقائمة بدلاً من الدائرة الافتراضية */
+   
+    padding-right: 50px; /* لإعطاء مسافة للرموز */
+    margin: 0;
+}
+
+.news-list li {
+    /* ❌ تم حذف font-size: x-large; لعدم تكرار الخاصية */
+    background-color: rgba(255, 255, 255, 0.05); /* خلفية داكنة خفيفة لكل عنصر */
+    padding: 15px;
+    margin-bottom: 15px;
+    border-radius: 6px;
+    border-right: 4px solid #007bff; /* خط أزرق للتمييز */
+    color: #cccccc; /* لون نص رمادي فاتح */
+    font-size: 1.5em; /* ⬅️ تم تغيير القيمة إلى 1.5em لتكبير الخط بشكل واضح */
+    line-height: 1.6;
+}
+
+/* نمط لتمييز الفواصل بين الأقسام */
+main hr {
+    border: 0;
+    height: 1px;  
+    background-color: rgba(255, 255, 255, 0.2);
+    margin: 25px 0;
+}

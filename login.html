@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تسجيل الدخول - FutureHub</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    <style>
+        /* ---------------------------------- */
+        /* 1. التنسيقات الأساسية (BODY) */
+        /* ---------------------------------- */
+        body {
+            /* التنسيقات العامة */
+            background-image: url(media/4fbe7fac4537ebfb0d838c638f08ee46\ \(1\).jpg); /* صورة الخلفية */
+            background-size: cover;
+            background-position: center; /* توسيط الصورة في الخلفية */
+            background-repeat: no-repeat; /* منع تكرار الصورة */
+            background-attachment: fixed; /* تثبيت الصورة عند التمرير */
+            
+            color: #FFFFFF; /* لون النص الافتراضي */
+            font-family: 'Cairo', sans-serif; /* استخدام خط القاهرة للعربية */
+            
+            /* تفعيل Flexbox لتوسيط المحتوى */
+            display: flex;
+            min-height: 100vh; /* جعل الجسم يغطي كامل ارتفاع الشاشة */
+            justify-content: center; /* التوسيط الأفقي */
+            align-items: center; /* التوسيط العمودي */
+            margin: 0; /* إزالة الهامش الافتراضي للجسم */
+            direction: rtl; /* اتجاه عام لليمين لليسار */
+        }
+
+        /* ---------------------------------- */
+        /* 2. حاوية النموذج (Wrapper) */
+        /* ---------------------------------- */
+        .wrapper {
+            width: 500px; /* عرض مناسب للنموذج */
+            background: rgba(26, 13, 42, 0.85); /* ⬅️ خلفية أرجوانية داكنة مع شفافية أعلى قليلاً */
+            border: 2px solid #E600E6; /* ⬅️ إطار وردي نيون */
+            border-radius: 15px;
+            padding: 30px 40px;
+            
+            /* توهج خفيف للحاوية لتمييزها */
+            box-shadow: 0 0 40px rgba(230, 0, 230, 0.7); /* ⬅️ توهج وردي أقوى قليلاً */
+            
+            /* تأثير ضبابي خفيف */
+            backdrop-filter: blur(10px); 
+            box-sizing: border-box; /* لضمان أن الـ padding لا يزيد العرض الكلي */
+        }
+
+        /* ---------------------------------- */
+        /* 3. العنوان (H1) والنموذج */
+        /* ---------------------------------- */
+        .wrapper h1 {
+            font-size: 2.2em;
+            text-align: center;
+            margin-bottom: 30px; 
+            color: #00CCFF; /* ⬅️ سيان نيون للعناوين */
+            text-shadow: 0 0 20px rgba(0, 204, 255, 0.8); /* توهج العنوان بالسيان */
+            font-weight: 700;
+        }
+
+        /* ---------------------------------- */
+        /* 4. حقول الإدخال (Input Boxes) */
+        /* ---------------------------------- */
+        .input-box {
+            position: relative;
+            width: 100%;
+            height: 50px;
+            margin: 25px 0; 
+        }
+
+        .input-box input {
+            width: 100%;
+            height: 100%;
+            background: transparent;
+            border: none;
+            outline: none;
+            
+            /* إطار سفلي مضيء */
+            border-bottom: 2px solid rgba(255, 255, 255, 0.6); /* ⬅️ إطار أبيض شفاف */
+            
+            font-size: 1.1em;
+            color: #FFFFFF;
+            padding: 0 5px 0 0; /* ⬅️ ضبط الـ padding لليمين بسبب RTL */
+            
+            transition: all 0.3s ease;
+        }
+
+        .input-box input:focus,
+        .input-box input:valid {
+            /* عند التركيز، يتغير لون الإطار إلى السيان المضيء */
+            border-bottom-color: #00CCFF; /* ⬅️ سيان نيون */
+            box-shadow: 0 2px 10px rgba(0, 204, 255, 0.5); /* توهج خفيف عند التركيز */
+        }
+
+        .input-box input::placeholder {
+            color: rgba(255, 255, 255, 0.5); /* لون placeholder أفتح */
+        }
+
+        /* ---------------------------------- */
+        /* 5. تذكرني ونسيت كلمة المرور */
+        /* ---------------------------------- */
+        .remember-forget {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.9em;
+            margin: 15px 0 20px; 
+            color: #CCCCCC; /* ⬅️ لون نص عام أهدأ */
+        }
+
+        .remember-forget label input {
+            accent-color: #E600E6; /* ⬅️ لون مربع الاختيار بالوردي النيون */
+            margin-left: 8px; /* ⬅️ الهامش لليسار بسبب RTL */
+            margin-right: 0;
+        }
+
+        .remember-forget a {
+            color: #00CCFF; /* ⬅️ رابط سيان نيون */
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .remember-forget a:hover {
+            text-decoration: underline;
+            color: #E600E6; /* ⬅️ يتغير إلى الوردي عند الهوفر */
+        }
+
+        /* ---------------------------------- */
+        /* 6. زر تسجيل الدخول (Login Button) */
+        /* ---------------------------------- */
+        .btn {
+            width: 100%;
+            height: 48px; /* ارتفاع أكبر للزر */
+            background: #E600E6; /* ⬅️ لون الزر الرئيسي وردي نيون */
+            border: none;
+            outline: none;
+            border-radius: 8px;
+            box-shadow: 0 0 15px rgba(230, 0, 230, 0.7); /* توهج وردي */
+            cursor: pointer;
+            font-size: 1.2em;
+            color: #1A0D2A; /* ⬅️ نص داكن ليتناسب مع الزر الوردي */
+            font-weight: 700; /* خط سميك */
+            margin-bottom: 15px; /* مسافة من رابط التسجيل */
+            transition: all 0.3s ease;
+        }
+
+        .btn:hover {
+            background: #00CCFF; /* ⬅️ سيان عند الهوفر */
+            box-shadow: 0 0 25px rgba(0, 204, 255, 0.8); /* توهج سيان أقوى */
+            transform: translateY(-3px); /* ⬅️ تأثير رفع بسيط */
+        }
+
+        /* ---------------------------------- */
+        /* 7. رابط التسجيل (Register Link) */
+        /* ---------------------------------- */
+        .register-link {
+            font-size: 0.9em;
+            text-align: center;
+            color: #CCCCCC; /* ⬅️ لون نص عام أهدأ */
+            margin-top: 20px; /* ⬅️ مسافة من الزر */
+        }
+
+        .register-link p a {
+            color: #E600E6; /* ⬅️ رابط التسجيل بالوردي لتمييزه */
+            text-decoration: none;
+            font-weight: 600; /* جعل النص أسمك قليلاً */
+            margin-right: 5px; /* ⬅️ الهامش لليمين بسبب RTL */
+            margin-left: 0;
+            transition: color 0.3s;
+        }
+
+        .register-link p a:hover {
+            text-decoration: underline;
+            color: #00CCFF; /* ⬅️ يتغير إلى السيان عند الهوفر */
+        }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <form action="">
+            <h1>تسجيل الدخول</h1>
+            <div class="input-box">
+                <input type="text" placeholder="اسم المستخدم" required>
+            </div>
+            <div class="input-box">
+                <input type="password" placeholder="كلمة المرور" required>
+            </div>
+            <div class="remember-forget">
+                <label><input type="checkbox"> تذكرني</label>
+                <a href="#">هل نسيت كلمة المرور؟</a>
+            </div>
+            <button type="submit" class="btn">تسجيل الدخول</button>
+
+            <div class="register-link">
+                <p>ليس لديك حساب بالفعل؟ <a href="#">سجل الآن</a></p>
+            </div>
+        </form>
+    </div> 
+</body>
+</html>

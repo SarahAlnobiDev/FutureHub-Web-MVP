@@ -1,0 +1,411 @@
+body{
+    direction: rtl;
+    text-align: right;
+    background-color: #141414;  
+    min-width: 100vh;
+    color: #ffffff;
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+/* ---------------------------------- */
+/* 2. عكس الترتيب في وضع RTL */
+/* ---------------------------------- */
+body[dir="rtl"] .navbar {
+    /* هنا نستخدم خاصية Flexbox لعكس ترتيب الشعار والروابط */
+    flex-direction: row-reverse; 
+}
+/* ---------------------------------- */
+/* 1. Navbar الرئيسي (التنسيق الأساسي) */
+/* ---------------------------------- */
+.navbar {
+    /* خلفية صلبة باللون الأسود الداكن */
+    background-color: #121212; 
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 7px 50px;
+    z-index: 1000;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4); /* ظل خفيف */
+}
+
+.logo a {
+    /* ⬅️ اللون: أبيض ناصع (محايد) */
+    color: #FFFFFF; 
+    font-size: 1.8em;
+    font-weight: 700;
+    text-decoration: none;
+    
+    /* ⬅️ توهج خفيف محايد (لا يستخدم ألوان النيون القوية) */
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.4); 
+}
+.nav-links {
+    list-style: none;
+    margin: 0; 
+    padding: 0; 
+    display: flex;
+    align-items: center;
+}
+
+.nav-links li {
+    margin-right: 12px; /* تباعد الروابط */
+} 
+
+.nav-links li a {
+    color: #E0E0E0; /* رمادي فاتح للنصوص */
+    text-decoration: none;
+    font-size: 1em;
+    padding: 5px 10px; /* مساحة لزر الإطار المضيء */
+    border-radius: 5px; 
+    border: 2px solid transparent; 
+    transition: all 0.3s ease;
+}
+
+.nav-links li a:hover {
+    color: #E0E0E0;
+    border: 2px solid #00FFFF; /* إطار سيان مضيء عند الهوفر */
+    box-shadow: 0 0 10px rgba(0, 255, 255, 0.5); 
+    background-color: transparent;
+}
+
+/* تنسيق أيقونة السهم داخل الروابط */
+.nav-links li a i {
+    font-size: 0.8em;
+    margin-left: 5px;
+}
+
+/* ---------------------------------- */
+/* 2. الأزرار (Sign In) */
+/* ---------------------------------- */
+.btn-login {
+    background-color: transparent !important; 
+    color: #00FFFF !important; 
+    border: 2px solid #00FFFF; 
+    padding: 8px 20px;
+    border-radius: 5px;
+    font-weight: 600;
+    box-shadow: 0 0 5px rgba(0, 255, 255, 0.5); 
+    margin-left: 15px;
+    margin-right: -5px; /* لتقريبها من زر CTA */
+}
+
+.btn-login:hover {
+    background-color: #00FFFF !important; 
+    color: #121212 !important; 
+    box-shadow: none;
+    transform: translateY(-2px);
+}
+.dropdown {
+    position: relative; 
+}
+
+.submenu {
+    display: none; /* إخفاؤها افتراضياً */
+    position: absolute; 
+    
+    background-color: rgba(30, 30, 30, 0.98); /* خلفية داكنة شبه صلبة */
+    list-style: none;
+    padding: 10px 0; 
+    border-radius: 5px;
+    
+    top: 100%; /* تظهر أسفل الرابط الأب مباشرة */
+    left: 0; 
+    min-width: 250px; /* لضمان عرض الروابط الطويلة */
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.7); 
+    border-top: 3px solid #FF00FF; /* شريط نيون وردي في الأعلى */
+    z-index: 1001; 
+}
+
+/* عند المرور على الرابط الأب، تظهر القائمة الفرعية */
+.dropdown:hover .submenu {
+    display: block; 
+}
+
+.submenu li {
+    margin: 0;
+    padding: 0;
+}
+
+.submenu li a {
+    padding: 8px 15px; 
+    color: #E0E0E0;
+    display: block; /* لجعل الروابط قابلة للضغط بالكامل */
+    border: none; /* إزالة إطار الهوفر من روابط القائمة الفرعية */
+    box-shadow: none;
+}
+
+.submenu li a:hover {
+    background-color: rgba(255, 0, 255, 0.1); /* خلفية وردية خفيفة */
+    color: #FF00FF; /* لون النص يصبح وردي */
+    transform: none;
+}
+
+/* ---------------------------------- */
+/* 1. تنسيق عنوان صفحة الأدوات (Tools Page Header) */
+/* ---------------------------------- */
+#tools-header.page-banner {
+    background-image: url('media/AI.gif'); 
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    /* ⬅️ 4. تفعيل Flexbox للتوسيط الرأسي */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* توسيط رأسي */
+    align-items: center; /* توسيط أفقي */
+    
+    /* تحديد ارتفاع كبير ليظهر التصميم بوضوح */
+    height: 60vh; 
+    
+    /* (إزالة الـ padding القديم لأنه يتعارض مع Flexbox) */
+    padding: 0; 
+    
+}
+
+#tools-header.page-banner h1 {
+    /* ... (بقية التنسيقات) ... */
+    text-align: center; /* للتأكد من توسيط العنوان نفسه */
+}
+
+#tools-header.page-banner p {
+    /* ... (بقية التنسيقات) ... */
+    text-align: center; /* للتأكد من توسيط الفقرة نفسها */
+}
+
+/* ---------------------------------- */
+/* 2. تنسيق عنوان الصفحة (Page Banner) */
+/* ---------------------------------- */
+.page-banner {
+    padding: 60px 50px 40px 50px;
+    text-align: center;
+    /* ⬅️ التعديل: لون أسود أعمق من الـ Navbar */
+    background-color: #FFFFFF;  
+    direction: rtl;
+}
+
+.page-banner h1 {
+    font-size: 3em;
+    color: #FFFFFF;
+    margin-bottom: 10px;
+    /* توهج سيان للعناوين الرئيسية */
+    text-shadow: 0 0 10px rgba(0, 255, 255, 0.6);
+}
+
+.page-banner p {
+    font-size: 1.1em;
+    color: #AAAAAA; /* نص رمادي فاتح ثانوي */
+}
+/* ---------------------------------- */
+/* 1. تنسيق الهيكل العام للصفحة */
+/* ---------------------------------- */
+.tools-page-content {
+    max-width: 1300px;
+    margin: 50px auto;
+    padding: 0 50px;
+    direction: rtl;
+}
+
+.tools-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 أعمدة */
+    gap: 30px; 
+    margin: 30px 0 80px 0;
+}
+
+.section-description {
+    color: #AAAAAA;
+    font-size: 1.1em;
+    margin-bottom: 40px;
+    text-align: right;
+    padding-right: 20px;
+}
+
+/* ---------------------------------- */
+/* 2. تنسيق بطاقة الأداة (الأساس) */
+/* ---------------------------------- */
+.tool-card {
+    background-color: #121212; /* خلفية ثابتة */
+    padding: 25px;
+    border-radius: 10px;
+    text-align: right;
+    text-decoration: none;
+    display: block;
+    transition: all 0.4s ease-in-out;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.tool-name {
+    font-size: 1.4em;
+    color: #FFFFFF;
+    margin-bottom: 10px;
+}
+
+/* قاعدة الأخضر (الإنتاجية) */
+.green-glow { text-shadow: 0 0 10px rgba(0, 255, 0, 0.6); border-right: 5px solid #00FF00; }
+.tool-card.green-border { border: 1px solid rgba(0, 255, 0, 0.2); }
+.tool-card.green-border:hover { border-color: #00FF00; box-shadow: 0 0 25px rgba(0, 255, 0, 0.8); transform: translateY(-7px); }
+.tool-card.green-border .tool-icon { color: #00FF00; text-shadow: 0 0 15px rgba(0, 255, 0, 0.9); }
+.tool-card.green-border .btn-tool-cta { background-color: #00FF00; color: #121212; }
+
+.tool-icon {
+    /* ⬅️ تم زيادة الحجم من 3em إلى 4em */
+    font-size: 4em; 
+    margin-bottom: 20px; /* زيادة التباعد ليتناسب مع الحجم الجديد */
+}
+
+/* ---------------------------------- */
+/* 3. قواعد الألوان النيون (لتعديل توهج الأيقونة) */
+/* --------------------------------
+
+/* قاعدة الأخضر (الإنتاجية) */
+/* ... (الكود السابق) ... */
+.tool-card.green-border .tool-icon { 
+    color: #00FF00; 
+    /* ⬅️ تم زيادة الظل ليتناسب مع الحجم الأكبر */
+    text-shadow: 0 0 20px rgba(0, 255, 0, 1); 
+}
+/* ---------------------------------- */
+/* 4. زر الانتقال (Go to Tool) - تصميم Ghost Button */
+/* ---------------------------------- */
+.btn-tool-cta {
+    display: block;
+    width: 90%;
+    padding: 5px;
+    
+    /* ⬅️ إزالة الخلفية الصلبة */
+    background-color: transparent; 
+    
+    /* ⬅️ إضافة إطار نيون أخضر */
+    border: 2px solid #371b83; 
+    
+    color: #371b83; /* لون النص أخضر نيون */
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 700;
+    
+    /* توهج خفيف للإطار */
+    
+    transition: all 0.3s ease;
+}
+.btn-tool-cta:hover {
+    /* ⬅️ عند التمرير: يمتلئ باللون الأخضر */
+    background-color: #371b83; 
+    color: #121212; /* يصبح النص أسود داكن */
+    box-shadow: 0 0 15px rgba(0, 255, 0, 0.9); /* توهج قوي */
+    transform: translateY(-2px);
+}
+
+/* ---------------------------------- */
+/* 9. Footer Styling (لغة عربية RTL) */
+/* ---------------------------------- */
+.main-footer {
+    padding: 60px 50px 20px 50px;
+    /* خلفية سوداء صلبة جدًا */
+    background-color: #000000; 
+    color: #AAAAAA;
+    font-size: 0.9em;
+    direction: rtl; /* الاتجاه من اليمين لليسار */
+}
+
+.footer-container {
+    display: flex;
+    /* ⬅️ عكس ترتيب الأعمدة لتبدأ من اليمين */
+    flex-direction: row-reverse; 
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto 40px auto;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1); 
+    padding-bottom: 30px;
+}
+
+.footer-col {
+    width: 25%; 
+    text-align: right;
+}
+
+/* ---------------------------------- */
+/* الشعار (Logo) */
+/* ---------------------------------- */
+.footer-logo {
+    color: #00FFFF; /* لون الشعار بالسيان */
+    font-size: 1.5em;
+    font-weight: 700;
+    text-shadow: 0 0 5px rgba(0, 255, 255, 0.6); 
+    text-decoration: none;
+    display: block;
+    margin-bottom: 15px;
+}
+
+.about-col p {
+    line-height: 1.6;
+}
+
+/* ---------------------------------- */
+/* الروابط الاجتماعية (Social Links) */
+/* ---------------------------------- */
+.social-links {
+    margin-top: 15px;
+}
+
+.social-links a {
+    color: #AAAAAA;
+    font-size: 1.5em;
+    margin-left: 20px; /* عكس التباعد ليتناسب مع RTL */
+    margin-right: 0;
+    transition: color 0.3s;
+}
+
+.social-links a:hover {
+    color: #FF00FF; /* توهج بالوردي عند الهوفر */
+}
+
+/* ---------------------------------- */
+/* عناوين الأقسام والقوائم */
+/* ---------------------------------- */
+.footer-col h4 {
+    font-size: 1.2em;
+    color: #FFFFFF;
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+.footer-col ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-col ul li {
+    margin-bottom: 10px;
+}
+
+.footer-col ul li a {
+    color: #AAAAAA;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.footer-col ul li a:hover {
+    color: #00FFFF; /* توهج بالسيان عند الهوفر */
+}
+
+/* ---------------------------------- */
+/* حقوق النشر (Footer Bottom) */
+/* ---------------------------------- */
+.footer-bottom {
+    text-align: center;
+    font-size: 0.85em;
+    color: #777777;
+    padding-top: 20px;
+}
+
+.legal-links a {
+    color: #777777;
+    text-decoration: none;
+    margin-right: 20px; /* التباعد بين الروابط القانونية */
+    transition: color 0.3s;
+}
+
+.legal-links a:hover {
+    color: #FFFFFF;
+}
+

@@ -1,0 +1,680 @@
+body{
+    direction: rtl;
+    text-align: right;
+    background-color: #141414;  
+    min-width: 100vh;
+    color: #ffffff;
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+body[dir="rtl"] .navbar {
+    flex-direction: row-reverse; 
+}
+.navbar {
+    background-color: #121212; 
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 50px;
+    z-index: 1000;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4); /* ظل خفيف */
+}
+/* ---------------------------------- */
+/* 1. Navbar الرئيسي (التنسيق الأساسي) */
+/* ---------------------------------- */
+.logo a {
+    color: #FFFFFF; 
+    font-size: 1.8em;
+    font-weight: 700;
+    text-decoration: none;
+        text-shadow: 0 0 5px rgba(255, 255, 255, 0.4); 
+}
+.nav-links {
+    list-style: none;
+    margin: 0; 
+    padding: 0; 
+    display: flex;
+    align-items: center;
+}
+
+.nav-links li {
+    margin-right: 12px; /* تباعد الروابط */
+} 
+
+.nav-links li a {
+    color: #E0E0E0; /* رمادي فاتح للنصوص */
+    text-decoration: none;
+    font-size: 1em;
+    padding: 5px 10px; /* مساحة لزر الإطار المضيء */
+    border-radius: 5px; 
+    border: 2px solid transparent; 
+    transition: all 0.3s ease;
+}
+
+.nav-links li a:hover {
+    color: #E0E0E0;
+    border: 2px solid #00FFFF; /* إطار سيان مضيء عند الهوفر */
+    box-shadow: 0 0 10px rgba(0, 255, 255, 0.5); 
+    background-color: transparent;
+}
+/* ---------------------------------- */
+/* 2. الأزرار (Sign In) */
+/* ---------------------------------- */
+.btn-login {
+    background-color: transparent !important; 
+    color: #00FFFF !important; 
+    border: 2px solid #00FFFF; 
+    padding: 8px 20px;
+    border-radius: 5px;
+    font-weight: 600;
+    box-shadow: 0 0 5px rgba(0, 255, 255, 0.5); 
+    margin-left: 15px;
+    margin-right: -5px; /* لتقريبها من زر CTA */
+}
+
+.btn-login:hover {
+    background-color: #00FFFF !important; 
+    color: #121212 !important; 
+    box-shadow: none;
+    transform: translateY(-2px);
+}
+/* ---------------------------------- */
+/* 1. تنسيق Hero Section (الخلفية المتحركة) */
+/* ---------------------------------- */
+.hero-section {
+    position: relative;
+    min-height: 85vh; /* ارتفاع ملء الشاشة تقريباً */
+    overflow: hidden; /* لإخفاء أي جزء زائد من الـ GIF */
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    direction: rtl; 
+    
+    /* ⬅️ الخلفية الافتراضية (في حال عدم تحميل الـ GIF) */
+    background-color: #0A0A0A; 
+}
+
+/* ---------------------------------- */
+/* 2. تنسيق صورة الـ GIF كخلفية */
+/* ---------------------------------- */
+.hero-background-gif {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    
+    /* ⬅️ خصائص الملء (تغطية كاملة) */
+    object-fit: cover; 
+        /* ⬅️ إضافة لون صلب فوق الـ GIF لدمجه مع الخلفية الداكنة */
+    background-color: rgba(0, 0, 0, 0.7); 
+    background-blend-mode: multiply;
+    
+    z-index: 1; /* يجب أن تكون خلف النص */
+}
+
+/* ---------------------------------- */
+/* 1. تنسيق محتوى النص (Hero Content) */
+/* ---------------------------------- */
+.hero-content {
+    position: relative;
+    z-index: 5; 
+    max-width: 800px;
+    padding: 0 20px;
+    
+    /* ⬅️ التعديل الحاسم: رفع الكتلة للأعلى */
+    /* نستخدم قيمة سالبة لرفع العنصر على المحور Y */
+    transform: translateY(-90px); 
+    
+    /* جعل المحتوى يتمركز عمودياً (للتأكد من أن flexbox يعمل) */
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
+}
+.hero-content h1 {
+    font-size: 3.2em; /* حجم كبير وقوي */
+    font-weight: 800;
+    margin-bottom: 5px;
+    color: #FFFFFF;    
+    /* ⬅️ تحويل التوهج إلى الوردي/الأرجواني */
+    text-shadow: 0 0 15px rgba(255, 0, 255, 0.8), 
+                 0 0 30px rgba(255, 0, 255, 0.4);
+}
+
+.hero-content h2 {
+    font-size: 2.2em; /* حجم كبير وقوي */
+    font-weight: 800;
+    color: #FFFFFF;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    
+    /* ⬅️ توهج سيان نيون قوي */
+    text-shadow: 0 0 15px rgba(74, 6, 58, 0.8), 
+                 0 0 20px rgba(177, 11, 127, 0.4)
+}
+
+.hero-content p {
+    font-size: 1.3em;
+    color: #CCCCCC;
+    margin-top: 0px;
+    margin-bottom: 40px;
+    line-height: 1.6;
+}
+
+/* ---------------------------------- */
+/* 4. صندوق البحث الرمزي */
+/* ---------------------------------- */
+.search-box {
+    display: flex;
+    width: 100%;
+    max-width: 1000px; /* عرض مربع البحث */
+    position: relative;
+    margin: 70px auto 1000px auto; /* توسيط مربع البحث مع بعض المساحة العلوية والسفلية */
+    /* الخلفية: شفافة قليلاً لدمجها مع الخلفية السوداء */
+    background-color: rgba(255, 255, 255, 0.1);     
+    border-radius: 20px; /* حواف أكثر استدارة قليلاً */
+    padding: 5px;
+    margin-top: 0px;
+    margin-bottom: 25px;
+    /* التوهج: ظل خفيف لإبراز الصندوق من الخلفية الداكنة */
+    box-shadow: 0 0 25px rgba(0, 255, 255, 0.3); 
+    
+    /* تأثير الضبابية (اختياري، يضيف عمقاً) */
+    backdrop-filter: blur(8px); 
+        /* ⬅️ الإطار: نجعله وردياً ليتناسب مع الـ H1 */
+    border: 3px solid #732973; 
+    box-shadow: 0 0 20px rgba(255, 0, 255, 0.4);
+
+}
+
+.search-box input {
+    flex-grow: 1; /* لملء المساحة المتاحة قبل الزر */
+    background: transparent;
+    border: none;
+    color: #FFFFFF; /* نص أبيض ناصع */
+    font-size: 1.1em;
+    padding: 10px 15px;
+    outline: none; /* إزالة الإطار الأزرق الافتراضي عند التركيز */
+}
+.search-box input::placeholder {
+    color: rgba(255, 255, 255, 0.6); /* رمادي فاتح شفاف */
+}
+/* ---------------------------------- */
+/* تنسيق زر تصفح الان (Primary CTA) */
+/* ---------------------------------- */
+.btn-primary {
+    /* ⬅️ لون أساسي: أرجواني غامق ليعطي ثقل للزر */
+    background-color: #732973; 
+    color: #FFFFFF;
+    padding: 12px 30px;
+    border-radius: 30px;
+    font-weight: bold;
+    text-decoration: none;
+    
+    /* ⬅️ توهج الماجنتا/الوردي في الوضع العادي */
+    box-shadow: 0 0 15px rgba(255, 0, 255, 0.6); 
+    
+    transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+    /* ⬅️ انعكاس اللون (أبيض ناصع) */
+    background-color: #FFFFFF; 
+    color: #000000;
+    
+    /* ⬅️ توهج نيون أرجواني أقوى عند الهوفر */
+    /* نستخدم لون الخلفية الأرجواني للمشروع لزيادة التناسق */
+    box-shadow: 0 0 25px #FF00FF, /* توهج وردي ساطع */
+                0 0 50px rgba(115, 41, 115, 0.8);
+    
+    /* إضافة حركة رفع خفيفة */
+    transform: translateY(-2px); 
+}
+.watch-video-link {
+    color: #732973; /* ⬅️ لون وردي للتباين */
+    margin-top: 0px; 
+    margin-bottom: 7px;
+}
+/* ---------------------------------- */
+/* 1. تنسيق الحاوية الرئيسية والمحتوى */
+/* ---------------------------------- */
+.page-content-section {
+    padding: 80px 50px;
+    text-align: center;
+    /* خلفية أفتح قليلاً من Hero لتباين خفيف */
+    background-color: #141414; 
+    direction: rtl;
+}
+
+.features-grid {
+    display: grid;
+    /* شبكة 3 أعمدة */
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 30px; 
+    max-width: 1200px;
+    margin: 50px auto 0 auto; 
+}
+
+/* ---------------------------------- */
+/* 2. تنسيق العنوان وتوهجه (H2) */
+/* ---------------------------------- */
+.section-title.magenta-glow {
+    font-size: 2.5em;
+    color: #FFFFFF;
+    margin-bottom: 40px;
+    
+    /* شريط التمييز الوردي (أنيق ومميز) */
+    border-right: 5px solid #FF00FF; 
+    padding-right: 50px;
+    text-align: center;
+    border-right: none; 
+    padding-right: 0;
+    /* توهج نيون وردي */
+    text-shadow: 0 0 8px rgba(255, 0, 255, 0.4);
+    font-weight: 800;
+}
+
+/* ---------------------------------- */
+/* 3. تنسيق بطاقة الميزة (Feature Card) */
+/* ---------------------------------- */
+.feature-card {
+    background-color: #0A0A0A; /* أغمق من الخلفية للتباين */
+    padding: 30px;
+    border-radius: 10px;
+    transition: all 0.4s ease-in-out;
+    text-align: center;
+}
+
+/* ⬅️ الحدود والتوهج الوردي/الماجنتا */
+.feature-card.magenta-border {
+    border: 1px solid rgba(255, 0, 255, 0.4);
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+}
+
+.feature-card.magenta-border:hover {
+    border-color: #FF00FF; 
+    box-shadow: 0 0 30px rgba(255, 0, 255, 0.7); 
+    transform: translateY(-8px); /* رفع كبير لجذب الانتباه */
+}
+
+/* 4. تنسيق الأيقونات والنصوص */
+.feature-icon {
+    font-size: 3em;
+    color: #FF00FF; /* أيقونات وردية */
+    margin-bottom: 15px;
+    text-shadow: 0 0 15px rgba(255, 0, 255, 0.9);
+    display: block; /* لضمان التوسيط */
+}
+
+.feature-card h3 {
+    font-size: 1.5em;
+    color: #FFFFFF;
+    margin-bottom: 10px;
+}
+
+.feature-card p {
+    color: #AAAAAA; 
+    font-size: 0.95em;
+    min-height: 50px;
+}
+/* ---------------------------------- */
+/* 1. تنسيق الشبكة الرئيسية (Launch Paths Grid) */
+/* ---------------------------------- */
+.launch-paths-grid {
+    display: grid;
+    /* 3 أعمدة متساوية */
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 40px; 
+    max-width: 1200px;
+    margin: 50px auto 80px auto; /* توسيط الكتلة */
+}
+
+.section-description-centered {
+    color: #AAAAAA;
+    font-size: 1.1em;
+    margin-bottom: 50px;
+    text-align: center;
+}
+/* ---------------------------------- */
+/* تنسيق الأقسام بشكل عام */
+/* ---------------------------------- */
+
+/* ⬅️ خلفية قسم مسارات الانطلاق */
+#launch-paths {
+    background-image:url(media/ttt.png); /* رمادي داكن دافئ (أفتح قليلاً من الأسود النقي) */
+    padding: 80px 50px;
+    direction: rtl;
+    text-align: center;
+}
+/* ---------------------------------- */
+/* 2. تنسيق بطاقة المسار (Path Card) */
+/* ---------------------------------- */
+.path-card {
+    background-color: #0A0A0A; 
+    padding: 35px;
+    border-radius: 12px;
+    text-align: center;
+    text-decoration: none;
+    display: block;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+    transition: all 0.4s ease-in-out;
+}
+
+.path-card:hover {
+    transform: translateY(-8px); /* رفع كبير لجذب الانتباه */
+}
+
+/* 3. الأيقونات والعناوين */
+.path-icon {
+    font-size: 3.5em;
+    margin-bottom: 15px;
+    text-shadow: 0 0 15px rgba(255, 255, 255, 0.9);
+}
+
+.path-title {
+    font-size: 1.6em;
+    color: #FFFFFF;
+    margin: 0 0 10px 0;
+}
+
+.path-card p {
+    color: #AAAAAA; 
+    font-size: 1em;
+    margin-bottom: 25px;
+}
+
+/* 4. زر الانطلاق (CTA Link) */
+.path-cta {
+    display: block;
+    font-weight: 700;
+    font-size: 1.1em;
+    text-align: center;
+}
+
+/* ---------------------------------- */
+/* 5. تطبيق الألوان المخصصة (The Neon Triad) */
+/* ---------------------------------- */
+
+/* ⬅️ 1. المسار الأخضر (Tools) */
+.path-card.green-path { border: 2px solid rgba(0, 255, 0, 0.4); }
+.green-path:hover { border-color: #00FF00; box-shadow: 0 0 30px rgba(0, 255, 0, 0.6); }
+.green-path .path-icon { color: #00FF00; }
+.green-path .path-cta { color: #00FF00; }
+
+/* ⬅️ 2. المسار الوردي (Channels) */
+.path-card.magenta-path { border: 2px solid rgba(255, 0, 255, 0.4); }
+.magenta-path:hover { border-color: #FF00FF; box-shadow: 0 0 30px rgba(255, 0, 255, 0.6); }
+.magenta-path .path-icon { color: #FF00FF; }
+.magenta-path .path-cta { color: #FF00FF; }
+
+/* ⬅️ 3. المسار السيان (References) */
+.path-card.cyan-path { border: 2px solid rgba(0, 255, 255, 0.4); }
+.cyan-path:hover { border-color: #00FFFF; box-shadow: 0 0 30px rgba(0, 255, 255, 0.6); }
+.cyan-path .path-icon { color: #00FFFF; }
+.cyan-path .path-cta { color: #00FFFF; }
+/* ---------------------------------- */
+
+
+/* ---------------------------------- */
+/* 1. تنسيق حاوية الشريط الزمني */
+/* ---------------------------------- */
+.trends-timeline-container {
+    display: flex; /* لترتيب العناصر أفقياً */
+    justify-content: space-between; /* توزيع متساوٍ */
+    max-width: 1200px;
+    margin: 50px auto 40px auto;
+    padding: 0 20px;
+    position: relative;
+    
+    /* ⬅️ الشريط الأفقي المضيء الذي يربط النقاط */
+    border-bottom: 2px solid rgba(0, 255, 255, 0.4); 
+    height: 150px; /* لتحديد ارتفاع الشريط */
+}
+
+/* ---------------------------------- */
+/* 2. تنسيق بطاقة العنصر في الشريط الزمني */
+/* ---------------------------------- */
+.timeline-item {
+    width: 200px; 
+    text-align: center;
+    position: relative;
+    top: -50px; /* لرفع البطاقات فوق خط الزمن */
+    transition: all 0.3s ease;
+}
+
+.timeline-item:hover {
+    transform: translateY(-10px);
+    cursor: pointer;
+}
+
+/* 3. نقطة الاتصال المضيئة على الخط */
+.timeline-point {
+    width: 15px;
+    height: 15px;
+    background-color: #00FFFF; /* لون سيان */
+    border-radius: 50%;
+    margin: 0 auto; /* توسيط النقطة */
+    position: absolute;
+    bottom: -10px; /* لوضع النقطة على الخط الأفقي */
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
+    box-shadow: 0 0 15px rgba(0, 255, 255, 0.9); /* توهج قوي */
+}
+
+/* 4. تنسيق النصوص والتاريخ */
+.timeline-item h4 {
+    color: #FFFFFF;
+    font-size: 1.1em;
+    margin-top: 10px;
+    margin-bottom: 5px;
+}
+
+.timeline-item p {
+    color: #AAAAAA;
+    font-size: 0.85em;
+}
+
+.timeline-date {
+    display: block;
+    color: #FF00FF; /* لون وردي للتباين */
+    font-weight: 600;
+    margin-bottom: 5px;
+}/* ---------------------------------- */
+/* ---------------------------------- */
+/* 1. التنسيقات العامة للقسم الختامي */
+/* ---------------------------------- */
+.cta-section-final {
+    background-color: transparent; /* ⬅️ جعل الخلفية شفافة ليظهر اللون الأساسي للجسم */
+    padding: 80px 50px; /* تباعد داخلي مناسب */
+    text-align: center;
+    margin-top: 80px; /* مسافة من القسم الذي يسبقه */
+}
+
+.cta-section-final .section-title {
+    font-size: 3em;
+    color: #ffffff; /* وردي نيون هادئ للعنوان الرئيسي */
+    text-shadow: 0 0 15px rgba(230, 0, 230, 0.8); /* توهج وردي */
+    margin-bottom: 20px;
+}
+
+.cta-section-final .section-description-centered {
+    font-size: 1.3em;
+    color: #CCCCCC;
+    max-width: 900px;
+    margin: 0 auto 40px auto; /* مسافة سفلية قبل الأزرار */
+    line-height: 1.6;
+}
+
+/* ---------------------------------- */
+/* 2. تنسيقات حاوية الأزرار (بلا تغيير) */
+/* ---------------------------------- */
+.cta-buttons-wrapper {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+/* ---------------------------------- */
+/* 3. تنسيقات الأزرار الفردية (بلا تغيير) */
+/* ---------------------------------- */
+.cta-button {
+    display: inline-block;
+    padding: 15px 35px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 1.2em;
+    font-weight: 700;
+    transition: all 0.3s ease;
+    min-width: 250px;
+    text-align: center;
+}
+
+/* ---------------------------------- */
+/* 4. تنسيق الزر الأساسي (Primary Button) (بلا تغيير) */
+/* ---------------------------------- */
+.cta-button.btn-primary {
+    background-color: #E600E6;
+    color: #1A0D2A;
+    box-shadow: 0 0 20px rgba(230, 0, 230, 0.7);
+    border: 1px solid #E600E6;
+}
+
+.cta-button.btn-primary:hover {
+    background-color: #00CCFF;
+    color: #1A0D2A;
+    box-shadow: 0 0 25px rgba(0, 204, 255, 0.9);
+    transform: translateY(-3px);
+}
+
+/* ---------------------------------- */
+/* 5. تنسيق الزر الثانوي (Secondary Button) (بلا تغيير) */
+/* ---------------------------------- */
+.cta-button.btn-secondary {
+    background-color: transparent;
+    color: #00CCFF;
+    border: 2px solid #00CCFF;
+    box-shadow: 0 0 15px rgba(0, 204, 255, 0.5);
+}
+
+.cta-button.btn-secondary:hover {
+    background-color: #00CCFF;
+    color: #1A0D2A;
+    box-shadow: 0 0 20px rgba(0, 204, 255, 0.9);
+    transform: translateY(-3px);
+}
+
+/* ---------------------------------- */
+/* 9. Footer Styling */
+/* ---------------------------------- */
+.main-footer {
+    padding: 60px 50px 20px 50px;
+    /* خلفية سوداء صلبة جدًا */
+    background-color: #000000; 
+    color: #AAAAAA;
+    font-size: 0.9em;
+    direction: ltr;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto 40px auto;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* خط فاصل خفيف */
+    padding-bottom: 30px;
+}
+
+.footer-col {
+    width: 20%; /* توزيع الأعمدة */
+}
+
+/* ---------------------------------- */
+/* الشعار والعنوان (About Column) */
+/* ---------------------------------- */
+.footer-logo {
+    color: #00FFFF; 
+    font-size: 1.5em;
+    font-weight: 700;
+    text-shadow: 0 0 5px rgba(0, 255, 255, 0.6); 
+    text-decoration: none;
+    display: block;
+    margin-bottom: 15px;
+}
+
+.about-col p {
+    line-height: 1.6;
+    margin-right: 20px;
+}
+
+/* ---------------------------------- */
+/* روابط الروابط (Links Columns) */
+/* ---------------------------------- */
+.links-col, .resources-col {
+    width: 25%;
+}
+
+.footer-col h4 {
+    font-size: 1.2em;
+    color: #FFFFFF;
+    margin-bottom: 20px;
+    font-weight: 600;
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.2);
+}
+
+.footer-col ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-col ul li {
+    margin-bottom: 10px;
+}
+
+.footer-col ul li a {
+    color: #AAAAAA;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.footer-col ul li a:hover {
+    color: #00FFFF; /* توهج بالسيان عند الهوفر */
+}
+
+/* ---------------------------------- */
+/* الروابط الاجتماعية (Social Links) */
+/* ---------------------------------- */
+.social-links a {
+    color: #AAAAAA;
+    font-size: 1.5em;
+    margin-right: 20px;
+    transition: color 0.3s;
+}
+
+.social-links a:hover {
+    color: #FF00FF; /* توهج بالوردي عند الهوفر */
+}
+
+/* ---------------------------------- */
+/* حقوق النشر (Footer Bottom) */
+/* ---------------------------------- */
+.footer-bottom {
+    text-align: center;
+    font-size: 0.85em;
+    color: #777777;
+}
+
+.legal-links a {
+    color: #777777;
+    text-decoration: none;
+    margin-left: 20px;
+    transition: color 0.3s;
+}
+
+.legal-links a:hover {
+    color: #FFFFFF;
+}

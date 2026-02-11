@@ -1,0 +1,992 @@
+body{
+    direction: rtl;
+    text-align: right;
+    background-color: #141414;  
+    min-width: 100vh;
+    color: #ffffff;
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+.navbar {
+    background-color: #121212; 
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 50px;
+    z-index: 1000;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4); 
+}
+body[dir="rtl"] .navbar {
+    flex-direction: row-reverse; 
+}
+body[dir="rtl"] .nav-links {
+    flex-direction: row-reverse; 
+    margin-left: auto; 
+}
+.logo a {
+    color: #FFFFFF; 
+    font-size: 1.8em;
+    font-weight: 700;
+    text-decoration: none;
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.4); 
+}
+.nav-links {
+    list-style: none;
+    margin: 0; 
+    padding: 0; 
+    display: flex;
+    align-items: center;
+}
+.nav-links li {
+    margin-right: 12px; 
+} 
+.nav-links li a {
+    color: #E0E0E0; 
+    text-decoration: none;
+    font-size: 1em;
+    padding: 5px 10px; 
+    border-radius: 5px; 
+    border: 2px solid transparent; 
+    transition: all 0.3s ease;
+}
+.nav-links li a:hover {
+    color: #E0E0E0;
+    border: 2px solid #00FFFF; 
+    box-shadow: 0 0 10px rgba(0, 255, 255, 0.5); 
+    background-color: transparent;
+}
+.nav-links li a i {
+    font-size: 0.8em;
+    margin-left: 5px;
+}
+.dropdown {
+    position: relative; 
+}
+.submenu {
+    display: none; 
+    position: absolute; 
+    background-color: rgba(30, 30, 30, 0.98); 
+    list-style: none;
+    padding: 10px 0; 
+    border-radius: 5px;
+    top: 100%; 
+    right: 0; 
+    left: auto;
+    min-width: 250px; 
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.7); 
+    border-top: 3px solid #FF00FF; 
+    z-index: 1001;
+    text-align: right; 
+}
+.dropdown:hover .submenu {
+    display: block; 
+}
+.submenu li {
+    margin: 0;
+    padding: 0;
+}
+.submenu li a {
+    padding: 8px 15px; 
+    color: #E0E0E0;
+    display: block; 
+     border: none; 
+    box-shadow: none;
+
+}
+.submenu li a:hover {
+    background-color: rgba(255, 0, 255, 0.1); 
+    color: #FF00FF;
+    transform: none;
+
+}
+.btn-login {
+    background-color: transparent !important; 
+    color: #FF00FF !important; 
+    border: 2px solid #FFFFFF; 
+    padding: 8px 20px;
+    border-radius: 5px;
+    font-weight: 600;
+    box-shadow: 0 0 5px rgba(255, 255, 255, 0.4); 
+    margin-right: 15px; 
+    transition: all 0.3s ease;
+}
+.btn-login:hover {
+    background-color: #FFFFFF !important; 
+    border: 2px solid #FFFFFF; 
+    color: #121212 !important; 
+    box-shadow: 0 0 10px rgba(0, 255, 255, 0.7); 
+    transform: translateY(-2px);
+}
+/* ---------------------------------- */
+/* 1. تنسيق Hero Section  */
+/* ---------------------------------- */
+#channels-hero.hero-section {
+    position: relative;
+    min-height: 70vh; 
+    overflow: hidden; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    direction: rtl; 
+    
+    /* ⬅️ الخلفية الافتراضية (للأمان) */
+    background-color: #000000;     
+    padding-top: 60px;
+}
+
+/* 2. تنسيق صورة الخلفية (لتظهر بوضوح) */
+.hero-background-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+    
+    /* ⬅️ إزالة التعتيم والدمج بالكامل */
+    opacity: 1; 
+    background-color: transparent; 
+    background-blend-mode: normal;
+    
+    z-index: 1;
+}
+
+/* ---------------------------------- */
+/* 3. تنسيق النصوص (أبيض ناصع) */
+/* ---------------------------------- */
+.hero-content {
+    position: relative;
+    z-index: 5; /* لضمان ظهور النص فوق الصورة */
+    max-width: 800px;
+     transform: translateY(-120px); 
+
+    /* ... (بقية التنسيقات) ... */
+}
+
+.hero-content h1.main-title-glow {
+    font-size: 3em; 
+    font-weight: 800;
+    color: #FFFFFF; /* ⬅️ أبيض ناصع */
+    margin-bottom: 15px;
+    
+    /* توهج وردي مازال قوياً لتمييز الهوية */
+    text-shadow: 0 0 15px rgba(255, 0, 255, 0.8); 
+}
+
+.hero-content h2.subtitle-glow {
+    font-size: 1.3em;
+    color: #FFFFFF; /* ⬅️ أبيض ناصع */
+    font-weight: 600;
+    margin-bottom: 30px;
+    text-shadow: 0 0 8px rgba(255, 255, 255, 0.5); /* توهج أبيض خفيف */
+}
+/* ---------------------------------- */
+/* 1. تنسيق الـ Secondary Navbar الممتد */
+/* ---------------------------------- */
+.secondary-navbar-full {
+    /* ⬅️ خلفية داكنة صلبة تمتد على عرض الشاشة */
+    background-color: #121212; 
+    padding: 15px 0;
+    
+    /* ⬅️ الظل السفلي المضيء (الذي يشبه التصميم المطلوب) */
+    box-shadow: 0 5px 20px rgba(138, 43, 226, 0.4); 
+    
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1); 
+    position: sticky; 
+    top: 0;
+    z-index: 10; 
+}
+
+/* 2. تنسيق حاوية الروابط (لتوسيط الروابط في المنتصف) */
+.secondary-nav-links {
+    list-style: none;
+    display: flex;
+    justify-content: center; /* توسيط الروابط */
+    margin: 0;
+    padding: 0;
+}
+
+.secondary-nav-links li {
+    margin: 0 20px;
+}
+
+/* 3. تنسيق الروابط وتأثير الهوفر (الأزرق والأرجواني) */
+.secondary-nav-item {
+    color: #E0E0E0; 
+    text-decoration: none;
+    font-size: 1.1em;
+    font-weight: 600;
+    padding: 10px 0;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.secondary-nav-item:hover {
+    color: #00FFFF; /* أزرق سيان عند الهوفر */
+}
+
+.secondary-nav-item::after {
+    content: '';
+    position: absolute;
+    bottom: -5px; 
+    right: 0;
+    width: 0%;
+    height: 3px;
+    /* ⬅️ خط سفلي متدرج ومضيء */
+    background: linear-gradient(90deg, #8A2BE2, #00BFFF); 
+    transition: width 0.3s ease;
+}
+
+.secondary-nav-item:hover::after {
+    width: 100%; /* يتمدد الخط المضيء عند الهوفر */
+}
+
+/*اول قسم البرمجة*/
+
+.resource-section {
+  background: #0b0b0f;
+  padding: 80px 10%;
+  border-radius: 20px;
+}
+.section-title {
+  color: #fff;
+  font-size: 2rem;
+  text-align: right;
+  margin-bottom: 40px;
+}
+
+.magenta-glow {
+  color: #e49bff;
+  text-shadow: 0 0 10px #d76aff;
+}
+
+/* الشبكة الأساسية */
+.resource-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 25px;
+  align-items: stretch;
+}
+
+/* البطاقة العامة */
+.resource-card {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 18px;
+  padding: 25px;
+  color: #ddd;
+  text-decoration: none;
+  transition: 0.3s ease;
+  backdrop-filter: blur(8px);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.resource-card:hover {
+  transform: translateY(-5px);
+  border-color: #e49bff;
+  background: rgba(228, 155, 255, 0.08);
+}
+
+/* أحجام البطاقات */
+.resource-card.large {
+  grid-column: span 2;
+  grid-row: span 1;
+}
+
+.resource-card.small {
+  grid-column: span 1;
+}
+
+.icon {
+  font-size: 1.8rem;
+  color: #e49bff;
+  margin-bottom: 10px;
+}
+
+.details h4 {
+  color: #fff;
+  margin: 8px 0;
+}
+
+.cta {
+  margin-top: 10px;
+  font-size: 0.9rem;
+  color: #e49bff;
+  font-weight: bold;
+}
+
+/* بطاقة المساعد الذكي */
+.ai-helper-card {
+  grid-column: span 1;
+  grid-row: span 3;
+  background: linear-gradient(145deg, #1a0929, #3c1053);
+  color: #fff;
+  padding: 40px;
+  border-radius: 22px;
+  text-align: center;
+  box-shadow: 0 0 25px rgba(200, 100, 255, 0.3);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.ai-helper-card .big-icon {
+  font-size: 3rem;
+  margin-bottom: 10px;
+  color: #ffb5ff;
+}
+
+.ai-btn {
+  background: #e49bff;
+  border: none;
+  color: #000;
+  padding: 12px 25px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: bold;
+  margin-top: 15px;
+  transition: 0.3s;
+}
+
+.ai-btn:hover {
+  background: #fff;
+}
+
+/* استجابة للشاشات الصغيرة */
+@media (max-width: 992px) {
+  .resource-grid {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  }
+
+  .ai-helper-card {
+    grid-column: span 1;
+    grid-row: auto;
+  }
+}
+.resource-card large, .resource-card small ,.resource-grid {
+  background: rgba(20, 20, 35, 0.85); /* لون أغمق قليلاً */
+  backdrop-filter: blur(6px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  transition: background 0.3s ease;
+}
+
+.resource-card large:hover, .resource-card small:hover {
+  background: rgba(35, 35, 60, 0.9); /* تغميق إضافي عند المرور */
+}
+#programming-logic {
+  position: relative;
+  background: url("media/prog.jpg") no-repeat center center;
+  background-size: cover;
+  color: #fff;
+  border-radius: 20px;
+  padding: 80px 8%;
+  overflow: hidden;
+}
+
+#programming-logic::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(16, 10, 30, 0.65); /* طبقة شفافة لتوضيح النص */
+  z-index: 0;
+}
+
+#programming-logic * {
+  position: relative;
+  z-index: 1;
+}
+.resource-section {
+  position: relative;
+  background: url("your-background.jpg") center/cover no-repeat;
+  padding: 80px 10%;
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+/* طبقة تعتيم فوق الخلفية */
+.resource-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(10, 5, 20, 0.75);
+  backdrop-filter: blur(4px);
+  z-index: 0;
+}
+
+/* نضمن أن المحتوى فوق الخلفية */
+.resource-section * {
+  position: relative;
+  z-index: 1;
+}
+/* ---------------------------------- */
+/* 1. تنسيق الشبكة الرئيسية (Webdev Grid) */
+/* ---------------------------------- */
+.web-resource-grid {
+    display: grid;
+    /* ⬅️ تقسيم رئيسي لـ 4 أعمدة في المجمل */
+    grid-template-columns: repeat(4, 1fr); 
+    gap: 25px; 
+    max-width: 1300px;
+    margin: 50px auto 80px auto; 
+    padding: 0 20px;
+    direction: rtl;
+}
+
+/* ---------------------------------- */
+/* 2. تنسيق بطاقة المساعد الذكي (الكتلة البارزة) */
+/* ---------------------------------- */
+.web-ai-card {
+    /* ⬅️ تثبيته في العمود الأول من اليمين (RTL) */
+    grid-column: 1 / 2; 
+    
+    /* ⬅️ اجعلها تمتد على صفين عمودياً */
+    grid-row: span 2; 
+    
+    background-color: #290F29; /* خلفية أرجوانية أعمق للمساعد */
+    padding: 30px 20px;
+    border-radius: 12px;
+    
+    /* زيادة الارتفاع لتبدو كـ Sidebar */
+    min-height: 520px; 
+    
+    /* ⬅️ تصميم التوهج الوردي القوي */
+    border: 3px solid #FF00FF; 
+    box-shadow: 0 0 40px rgba(255, 0, 255, 0.6);
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    
+    transition: all 0.4s ease;
+}
+
+/* ---------------------------------- */
+/* 3. تنسيق بطاقات المصادر الستة (الجزء الأيسر) */
+/* ---------------------------------- */
+.web-card {
+    /* ⬅️ هذه البطاقات ستبدأ من العمود 2 وتتوزع على 3 أعمدة (2, 3, 4) */
+    grid-column: span 1; 
+    
+    background-color: #1A0A1A; /* خلفية أرجوانية داكنة خفيفة */
+    padding: 20px;
+    border-radius: 10px;
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    
+    /* إطار نيون وردي رقيق */
+    border: 1px solid rgba(255, 0, 255, 0.2); 
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    transition: all 0.3s ease;
+    min-height: 220px; /* ضمان تساوي الارتفاعات */
+}
+
+.web-card:hover {
+    border-color: #FF00FF; 
+    box-shadow: 0 0 25px rgba(255, 0, 255, 0.4);
+    transform: translateY(-5px);
+}
+
+/* ---------------------------------- */
+/* 4. الأيقونات والنصوص والألوان */
+/* ---------------------------------- */
+.web-icon {
+    font-size: 3em;
+    color: #00FFFF; /* ⬅️ أيقونات سيان للتباين */
+    text-shadow: 0 0 15px rgba(0, 255, 255, 0.9);
+    margin-bottom: 10px;
+}
+
+.web-card-title {
+    color: #FFFFFF;
+    font-size: 1.2em;
+    margin-bottom: 5px;
+}
+
+.web-card-desc {
+    color: #AAAAAA;
+    font-size: 0.9em;
+    margin-bottom: 15px;
+    flex-grow: 1; 
+}
+
+.web-card-cta, .web-ai-card .web-card-cta {
+    font-weight: 700;
+    color: #00FF00; /* ⬅️ CTA أخضر نيون للتباين القوي */
+    margin-top: 10px;
+    padding-top: 10px;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+/* ---------------------------------- */
+/* 1. الحاوية الرئيسية (Split Layout - Flexbox) */
+/* ---------------------------------- */
+.ai-split-layout {
+    display: flex;
+    /* ⬅️ الاتجاه: الصورة في اليسار والمحتوى في اليمين (RTL) */
+    flex-direction: row; 
+    gap: 50px; /* مسافة واضحة بين الجانبين */
+    max-width: 1300px;
+    margin: 50px auto 80px auto; 
+    padding: 0 50px;
+}
+
+/* ---------------------------------- */
+/* 2. لوحة الصورة (اليسار) */
+/* ---------------------------------- */
+.ai-visual-panel {
+    width: 40%; /* 40% من المساحة للصورة */
+    flex-shrink: 0;
+    
+    /* ⬅️ هنا نضع الصورة لتمتد على كامل الارتفاع */
+    display: flex; 
+    align-items: center; 
+    justify-content: center;
+    min-height: 550px; 
+    
+    /* توهج وجمالية */
+    background-color: #121212; 
+    border-radius: 15px;
+}
+
+.ai-main-visual {
+    max-width: 80%; 
+    height: auto;
+}
+
+/* ---------------------------------- */
+/* 3. لوحة المنصات (اليمين) */
+/* ---------------------------------- */
+.ai-platforms-panel {
+    width: 60%; 
+    display: flex;
+    flex-direction: column;
+}
+
+/* ---------------------------------- */
+/* 4. تنسيق شبكة المنصات (Grid) */
+/* ---------------------------------- */
+.ai-platforms-grid {
+    display: grid;
+    /* 3 أعمدة (الأفضل لـ 6 عناصر) */
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 30px;
+    padding-top: 20px;
+}
+
+/* ---------------------------------- */
+/* 5. تنسيق  (Dot List Item) */
+/* ---------------------------------- */
+.ai-dot-item {
+    /* ⬅️ تغيير الخلفية إلى اللون الأرجواني الداكن */
+    background-color: #1A0A1A; 
+    padding: 15px 20px;
+    border-radius: 0; 
+    box-shadow: none;
+    
+    /* فاصل سفلي خفيف بين الصفوف */
+    border-bottom: 1px solid rgba(255, 0, 255, 0.15); /* فاصل وردي خفيف */
+     position: relative; /* ⬅️ مهم لوضع زر CTA */
+    text-align: right;
+    transition: all 0.3s ease;
+    min-height: 120px; 
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; 
+}
+
+/* ---------------------------------- */
+/* 2. تأثير الهوفر (لتأكيد اللون الداكن) */
+/* ---------------------------------- */
+.ai-dot-item:hover {
+    background-color: #290F29; /* ⬅️ يصبح أغمق عند الهوفر (نفس لون المساعد) */
+    border-color: transparent;
+    /* ظل وردي خفيف جداً يظهر فقط */
+    box-shadow: 0 0 10px rgba(255, 0, 255, 0.2); 
+    transform: none;
+}
+
+.ai-dot-item h4 {
+    color: #FFFFFF;
+    font-size: 1.1em;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.ai-dot-item p {
+    color: #AAAAAA;
+    font-size: 0.85em;
+    margin-bottom: 20px;
+}
+
+.ai-dot-item .dot-link {
+    /* (إخفاء التنسيق الافتراضي للرابط ليظهر كعنوان) */
+    text-decoration: none;
+    color: #FFFFFF;
+}
+
+/* ---------------------------------- */
+/* 2. تنسيق زر "اذهب" (Dot CTA) */
+/* ---------------------------------- */
+.dot-cta {
+    position: absolute; /* ⬅️ وضعه في زاوية البطاقة */
+    bottom: 10px;
+    left: 10px; /* الزاوية العلوية اليسرى */
+    
+    color: #00FFFF; /* لون سيان نيون للتباين */
+    font-size: 0.85em;
+    font-weight: 700;
+    text-decoration: none;
+    
+    border: 1px solid #00FFFF;
+    padding: 4px 10px;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+.ai-dot-item:hover .dot-cta {
+    background-color: #00FFFF;
+    color: #1A0A1A;
+    box-shadow: 0 0 10px rgba(0, 255, 255, 0.7);
+}
+
+/* ---------------------------------- */
+/* 1. تنسيق القسم الرئيسي (Academic Duo Layout) */
+/* ---------------------------------- */
+.academic-duo-layout {
+    display: flex;
+    flex-direction: row-reverse; /* اليمين لليسار */
+    gap: 40px; 
+    max-width: 1200px;
+    margin: 50px auto 80px auto; 
+    padding: 0 20px;
+}
+
+.math-column {
+    flex: 1; /* جعل العمودين متساويين في العرض */
+}
+
+.column-title {
+    font-size: 1.4em;
+    color: #00FFFF; /* ⬅️ عنوان العمود بالسيان */
+    margin-bottom: 25px;
+    border-bottom: 2px solid rgba(0, 255, 255, 0.5); /* خط فاصل أسفل العنوان */
+    padding-bottom: 10px;
+    font-weight: 700;
+}
+
+/* ---------------------------------- */
+/* 2. تنسيق بطاقة المرجع الأكاديمي */
+/* ---------------------------------- */
+.academic-card {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    
+    background-color: #0A1A1A; /* خلفية داكنة جداً */
+    padding: 15px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    
+    /* ⬅️ الحدود والإضاءة السيانية */
+    border: 1px solid rgba(0, 255, 255, 0.4); 
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+    transition: all 0.3s ease;
+}
+
+.academic-card:hover {
+    border-color: #00FFFF;
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.5);
+    transform: translateY(-3px);
+}
+
+.academic-card .card-details {
+    text-align: right;
+    flex-grow: 1;
+}
+
+/* 3. تنسيق الأيقونات والنصوص */
+.academic-card .card-icon {
+    font-size: 1.8em;
+    color: #FF00FF; /* ⬅️ أيقونات وردية للتباين */
+    text-shadow: 0 0 10px rgba(255, 0, 255, 0.7);
+    margin-left: 15px;
+    flex-shrink: 0;
+}
+
+.academic-card h4 {
+    color: #FFFFFF;
+    font-size: 1.1em;
+    margin: 0 0 5px 0;
+}
+
+.academic-card p {
+    color: #AAAAAA;
+    font-size: 0.85em;
+    margin: 0;
+}
+/* ---------------------------------- */
+/* 1. تنسيق حاوية المساعد الذكي (للتوسيط) */
+/* ---------------------------------- */
+.math-assistant-floating-wrapper {
+    max-width: 100%;
+    text-align: center;
+    margin-bottom: 40px; 
+}
+
+/* ---------------------------------- */
+/* 2. تنسيق بطاقة المساعد الذكي (الكتلة العائمة) */
+/* ---------------------------------- */
+.math-helper-floating {
+    /* ⬅️ تحديد حجم أصغر وبارز */
+    width: 450px; 
+    display: inline-flex; /* لجعله يتمركز ككتلة واحدة */
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    
+    background-color: #050505; /* أسود نقي لزيادة التباين */
+    padding: 30px;
+    border-radius: 15px;
+    
+    /* ⬅️ التوهج: سيان قوي */
+    border: 3px solid #00FFFF; 
+    box-shadow: 0 0 50px rgba(0, 255, 255, 0.8); /* توهج قوي جداً */
+}
+
+.math-helper-floating .card-icon {
+    font-size: 3.5em; /* أيقونة أكبر */
+    color: #00FFFF; 
+    text-shadow: 0 0 15px rgba(0, 255, 255, 1);
+    margin-bottom: 10px;
+}
+
+.math-helper-floating .web-card-title {
+    color: #FFFFFF;
+    font-size: 1.6em; /* عنوان أكبر وأوضح */
+}
+
+.math-helper-floating .web-card-desc {
+    color: #AAAAAA;
+    font-size: 0.95em;
+    margin: 10px 0 20px 0;
+}
+
+.math-helper-floating .web-card-cta {
+    /* زر CTA وردي (للتباين مع السيان) */
+    color: #FF00FF; 
+    border-top: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.math-helper-floating:hover {
+    transform: scale(1.02); /* تكبير طفيف عند الهوفر */
+}
+
+/* ---------------------------------- */
+/* 1. تنسيق حاوية المنصات الشاملة (Clustered Grid) */
+/* ---------------------------------- */
+.platform-clustered-grid {
+    display: grid;
+    /* 3 أعمدة متساوية */
+    grid-template-columns: repeat(3, 1fr); 
+    /* ⬅️ مسافة أقل بين البطاقات لجعلها تبدو متجاورة */
+    gap: 15px; 
+    max-width: 900px; /* عرض أقل لتركيز الانتباه */
+    margin: 50px auto 80px auto; 
+    padding: 20px;
+    
+    /* ⬅️ إضافة إطار خارجي كبير للحاوية لتمييزها كلوحة */
+    border: 2px solid rgba(255, 0, 255, 0.4); 
+    border-radius: 15px;
+    background-color: #0A0A0A; /* أغمق من الخلفية للتباين */
+}
+
+/* ---------------------------------- */
+/* 2. تنسيق بطاقة المنصة النهائية */
+/* ---------------------------------- */
+.platform-final-card {
+    background-color: #1A0A1A; /* خلفية أرجوانية داكنة خفيفة */
+    padding: 15px;
+    border-radius: 8px;
+    text-align: center;
+    text-decoration: none;
+    display: block;
+    
+    /* إطار دقيق جداً بدون ظل خارجي (للنظافة) */
+    border: 1px solid rgba(255, 0, 255, 0.2); 
+    transition: all 0.3s ease;
+    min-height: 180px; /* ارتفاع ثابت للبطاقات الصغيرة */
+}
+
+.platform-final-card:hover {
+    border-color: #FF00FF; 
+    transform: translateY(-3px); /* رفع خفيف */
+    box-shadow: 0 0 10px rgba(255, 0, 255, 0.4); /* ظل خفيف جداً */
+}
+
+.platform-final-card .card-icon {
+    font-size: 2.2em;
+    color: #00FFFF; /* سيان للتباين */
+    text-shadow: 0 0 10px rgba(0, 255, 255, 0.8);
+    margin-bottom: 10px;
+}
+
+.platform-final-card .card-title {
+    color: #FFFFFF;
+    font-size: 1.1em;
+    margin-bottom: 5px;
+}
+
+.platform-final-card p {
+    color: #AAAAAA;
+    font-size: 0.8em;
+    margin-bottom: 0;
+}
+/* ---------------------------------- */
+/* 3. تنسيق زر CTA داخل البطاقة النهائية */
+/* ---------------------------------- */
+.platform-final-card {
+    /* ... (التنسيقات الأساسية) ... */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* لضمان أن الزر يكون في الأسفل */
+}
+
+.platform-cta-link {
+    display: block;
+    width: 100%;
+    
+    color: #00FF00; /* ⬅️ أخضر نيون ساطع */
+    font-weight: 700;
+    font-size: 1em;
+    text-align: center;
+    text-decoration: none;
+    
+    margin-top: 10px;
+    padding-top: 5px;
+    border-top: 1px solid rgba(255, 255, 255, 0.2); /* فاصل علوي خفيف */
+    transition: color 0.3s;
+}
+
+.platform-cta-link:hover {
+    color: #FFFFFF; /* يصبح أبيض ناصع عند الهوفر */
+    text-shadow: 0 0 5px rgba(0, 255, 0, 0.8);
+}
+.main-footer {
+    padding: 60px 50px 20px 50px;
+    /* خلفية سوداء صلبة جدًا */
+    background-color: #000000; 
+    color: #AAAAAA;
+    font-size: 0.9em;
+    direction: rtl; /* الاتجاه من اليمين لليسار */
+}
+
+.footer-container {
+    display: flex;
+    /* ⬅️ عكس ترتيب الأعمدة لتبدأ من اليمين */
+    flex-direction: row-reverse; 
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto 40px auto;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1); 
+    padding-bottom: 30px;
+}
+
+.footer-col {
+    width: 25%; 
+    text-align: right;
+}
+
+/* ---------------------------------- */
+/* الشعار (Logo) */
+/* ---------------------------------- */
+.footer-logo {
+    color: #00FFFF; /* لون الشعار بالسيان */
+    font-size: 1.5em;
+    font-weight: 700;
+    text-shadow: 0 0 5px rgba(0, 255, 255, 0.6); 
+    text-decoration: none;
+    display: block;
+    margin-bottom: 15px;
+}
+
+.about-col p {
+    line-height: 1.6;
+}
+
+/* ---------------------------------- */
+/* الروابط الاجتماعية (Social Links) */
+/* ---------------------------------- */
+.social-links {
+    margin-top: 15px;
+}
+
+.social-links a {
+    color: #AAAAAA;
+    font-size: 1.5em;
+    margin-left: 20px; /* عكس التباعد ليتناسب مع RTL */
+    margin-right: 0;
+    transition: color 0.3s;
+}
+
+.social-links a:hover {
+    color: #FF00FF; /* توهج بالوردي عند الهوفر */
+}
+
+/* ---------------------------------- */
+/* عناوين الأقسام والقوائم */
+/* ---------------------------------- */
+.footer-col h4 {
+    font-size: 1.2em;
+    color: #FFFFFF;
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+.footer-col ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-col ul li {
+    margin-bottom: 10px;
+}
+
+.footer-col ul li a {
+    color: #AAAAAA;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.footer-col ul li a:hover {
+    color: #00FFFF; /* توهج بالسيان عند الهوفر */
+}
+
+/* ---------------------------------- */
+/* حقوق النشر (Footer Bottom) */
+/* ---------------------------------- */
+.footer-bottom {
+    text-align: center;
+    font-size: 0.85em;
+    color: #777777;
+    padding-top: 20px;
+}
+
+.legal-links a {
+    color: #777777;
+    text-decoration: none;
+    margin-right: 20px; /* التباعد بين الروابط القانونية */
+    transition: color 0.3s;
+}
+
+.legal-links a:hover {
+    color: #FFFFFF;
+}

@@ -1,0 +1,301 @@
+body{
+    direction: rtl;
+    text-align: right;
+    background-color: #141414;  
+    min-width: 100vh;
+    color: #ffffff;
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+body[dir="rtl"] .navbar {
+    flex-direction: row-reverse; 
+}
+.navbar {
+    background-color: #121212; 
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 50px;
+    z-index: 1000;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4); /* ظل خفيف */
+}
+/* ---------------------------------- */
+/* 1. Navbar الرئيسي (التنسيق الأساسي) */
+/* ---------------------------------- */
+.logo a {
+    color: #FFFFFF; 
+    font-size: 1.8em;
+    font-weight: 700;
+    text-decoration: none;
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.4); 
+}
+.nav-links {
+    list-style: none;
+    margin: 0; 
+    padding: 0; 
+    display: flex;
+    align-items: center;
+}
+
+.nav-links li {
+    margin-right: 12px; /* تباعد الروابط */
+} 
+
+.nav-links li a {
+    color: #E0E0E0; /* رمادي فاتح للنصوص */
+    text-decoration: none;
+    font-size: 1em;
+    padding: 5px 10px; /* مساحة لزر الإطار المضيء */
+    border-radius: 5px; 
+    border: 2px solid transparent; 
+    transition: all 0.3s ease;
+}
+
+.nav-links li a:hover {
+    color: #E0E0E0;
+    border: 2px solid #00FFFF; /* إطار سيان مضيء عند الهوفر */
+    box-shadow: 0 0 10px rgba(0, 255, 255, 0.5); 
+    background-color: transparent;
+}
+/* ---------------------------------- */
+/* 2. الأزرار (Sign In) */
+/* ---------------------------------- */
+.btn-login {
+    background-color: transparent !important; 
+    color: #00FFFF !important; 
+    border: 2px solid #00FFFF; 
+    padding: 8px 20px;
+    border-radius: 5px;
+    font-weight: 600;
+    box-shadow: 0 0 5px rgba(0, 255, 255, 0.5); 
+    margin-left: 15px;
+    margin-right: -5px; /* لتقريبها من زر CTA */
+}
+
+.btn-login:hover {
+    background-color: #00FFFF !important; 
+    color: #121212 !important; 
+    box-shadow: none;
+    transform: translateY(-2px);
+}
+/* ---------------------------------- */
+/* التنسيقات الأساسية للمحتوى */
+/* ---------------------------------- */
+#about-hero-new {
+    background-color: #1A0D2A; /* ⬅️ أرجواني أغمق قليلاً من الجسم */
+    padding: 10px 50px 80px 50px; /* padding علوي أكبر بسبب الناف بار الثابت */
+    text-align: center;
+}
+
+#about-hero-new .hero-title {
+    font-size: 2.8em;
+    color: #FFFFFF;
+    margin-bottom: 15px;
+}
+
+#about-hero-new .hero-subtitle {
+    font-size: 1.4em;
+    color: #CCCCCC;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+/* ---------------------------------- */
+/* التنسيقات الأساسية للمحتوى */
+/* ---------------------------------- */
+.about-page-content {
+    max-width: 1200px;
+    margin: 50px auto;
+    padding: 0 50px;
+}
+
+.about-section {
+    padding: 60px 0; /* padding أكبر للأقسام */
+    margin-bottom: 50px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08); /* فاصل أهدأ */
+}
+
+.about-section:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+}
+
+.section-title {
+    font-size: 2.8em;
+  color: #c9a7ff;
+    text-shadow: 0 0 10px rgba(0, 204, 255, 0.5);
+    margin-bottom: 30px;
+    text-align: right;
+    border-right: 4px solid #603660; /* شريط وردي بجانب العنوان */
+    padding-right: 15px;
+}
+
+/* ---------------------------------- */
+/* تنسيق التخطيط ذو العمودين المتناوبين */
+/* ---------------------------------- */
+/* ---------------------------------- */
+/* تنسيق التخطيط ذو العمودين المتناوبين */
+/* ---------------------------------- */
+.content-right-image-left,
+.image-right-content-left {
+    display: flex;
+    gap: 60px; /* مسافة أكبر بين الأعمدة */
+    align-items: center;
+    /* ⬅️ هذه التنسيقات ستكون هي الافتراضية للبطاقات */
+    background-color: #1A0D2A; 
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 0 25px rgba(0, 0, 0, 0.4); 
+}
+
+/* ⬅️ تنسيق جديد للقسم بدون خلفية/بطاقة */
+.no-background-card {
+    background-color: transparent; /* ⬅️ جعل الخلفية شفافة */
+    box-shadow: none; /* ⬅️ إزالة الظل */
+    border: none; /* ⬅️ إزالة الحدود */
+    padding: 20px 0; /* ⬅️ تقليل الـ padding ليناسب المظهر "الجريدة" */
+    margin-bottom: 50px; /* الحفاظ على مسافة كافية */
+}
+
+.content-right-image-left {
+    flex-direction: row-reverse; /* نص يمين، صورة يسار */
+}
+
+.image-right-content-left {
+    flex-direction: row; /* صورة يمين، نص يسار */
+}
+
+.content-col {
+    flex: 2; /* النص يأخذ مساحة أكبر */
+    text-align: right;
+}
+
+.content-col p {
+    font-size: 1.15em;
+    color: #E0E0E0;
+    line-height: 1.7;
+    margin-bottom: 15px;
+}
+
+.content-col p strong {
+    color: #7a2e7a; /* تمييز الكلمات بالوردي الهادئ */
+    text-shadow: 0 0 5px rgba(230, 0, 230, 0.3);
+}
+
+.content-col ul {
+    list-style: none;
+    padding: 0;
+    margin-top: 20px;
+}
+
+.content-col ul li {
+    background-color: rgba(230, 0, 230, 0.1); /* خلفية خفيفة لعناصر القائمة */
+    padding: 10px 15px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    color: #F0F0F0;
+    border-right: 3px solid #00CCFF; /* شريط سيان */
+}
+
+.content-col ul li strong {
+    color: #00CCFF; /* سيان للكلمات المهمة في القائمة */
+}
+
+.image-col {
+    flex: 1; /* الصورة تأخذ مساحة أقل */
+    text-align: center;
+}
+
+.section-icon {
+    font-size: 8em; /* أيقونة ضخمة */
+    color: rgba(0, 204, 255, 0.6); /* سيان هادئ وشفاف */
+    text-shadow: 0 0 30px rgba(0, 204, 255, 0.4); /* توهج خفيف */
+}
+
+.icon-caption {
+    color: #AAAAAA;
+    font-style: italic;
+    margin-top: 15px;
+    font-size: 1em;
+}
+/* ---------------------------------- */
+/* تنسيق قسم الختام */
+/* ---------------------------------- */
+#final-call {
+    text-align: center;
+    padding: 80px 0;
+}
+
+.final-message {
+    font-size: 1.8em;
+    font-weight: 600;
+    color: #00CCFF; /* سيان للرسالة النهائية */
+    text-shadow: 0 0 15px rgba(0, 204, 255, 0.7);
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.developer-section {
+  padding: 60px 10%;
+  background-color: #0b0b0f;
+  color: #fff;
+}
+
+.section-title {
+  text-align: center;
+  margin-bottom: 40px;
+  font-size: 1.6rem;
+  color: #b68eff;
+}
+
+.developer-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 40px;
+}
+
+.profile-image img {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  border: 2px solid #8a2be2;
+  object-fit: cover;
+}
+
+.profile-info {
+  max-width: 500px;
+  text-align: left;
+}
+
+.profile-info h4 {
+  font-size: 1.5rem;
+  text-align: center;
+  margin-bottom: 10px;
+  color: #ffffff;
+}
+
+.profile-info p {
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 20px;
+  color: #ddd;
+}
+
+.contact-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.contact-row a {
+  color: #b68eff;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.contact-row a:hover {
+  color: #fff;
+}
